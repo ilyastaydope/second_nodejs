@@ -3,7 +3,11 @@ const app = express();
 
 app.use(express.json());
 
-const port = 3000;
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const port = process.env.APP_PORT;
 
 app.get('/home', (req, res) => {
     console.log(req);
@@ -13,3 +17,4 @@ app.get('/home', (req, res) => {
 app.listen(port, () =>{
     console.log(`App start listen on port ${port}`);
 });
+
